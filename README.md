@@ -20,16 +20,16 @@ Mas que tal agora colocarmos a mão na massa? :)
 
 # Quais tecnologias iremos utilizar?
 
-![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/uitj9v0o6k6xhtepa8i9.png)
+![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ngn93gk3iqvmt26uvys9.png)
 
 Para esse artigo em questão, iremos precisar ter as seguintes tecnologias no nosso projeto:
 
 1. [Java 8+](https://www.java.com/pt-BR/download/help/whatis_java.html): Linguagem de Programação Java na versão 8+
-2. [Maven](https://maven.apache.org/): Ferramenta de automação para compilação
+2. [Maven](https://maven.apache.org/): Ferramenta para o gerenciamento de dependências no Java.
 3. [ArchUnit](https://www.archunit.org/): Ferramenta que será utilizada para o desenvolvimento dos nossos testes arquiteturais
 4. [Spring](https://spring.io/): Framework de programação
 
-Não irei entrar muito a dentro de todas as tecnologias utilizadas pois não é o nosso objetivo desse artigo.
+Não irei entrar muito adentro de todas as tecnologias utilizadas pois não é o nosso objetivo desse artigo.
 
 ## Configurando o nosso projeto:
 
