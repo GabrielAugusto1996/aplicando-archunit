@@ -17,7 +17,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 public class ArchitectureTest {
 
     // Definindo Nomes das Classes
-    
+
     @ArchTest
     static ArchRule ClassesQuePossuemAnotacaoController_DeveraoFinalizarComNomeController =
             classes()
@@ -39,4 +39,25 @@ public class ArchitectureTest {
                     .should().haveSimpleNameEndingWith("Service")
                     .as("Caro desenvolvedor, todas as nossas classes que estão anotadas como Service, deverão ter o nome finalizado com Service");
 
+    // Definindo o nome dos pacotes
+    @ArchTest
+    static ArchRule ClassesQuePossuemAnotacaoController_DeveraoResidirNoPacoteController =
+            classes()
+                    .that().areAnnotatedWith(Controller.class)
+                    .should().resideInAPackage("..controller..")
+                    .as("Caro desenvolvedor, todas as nossas classes que estão anotadas como Controller, deverão residir no pacote *.controller");
+
+    @ArchTest
+    static ArchRule ClassesQuePossuemAnotacaoService_DeveraoResidirNoPacoteService =
+            classes()
+                    .that().areAnnotatedWith(Service.class)
+                    .should().resideInAPackage("..service..")
+                    .as("Caro desenvolvedor, todas as nossas classes que estão anotadas como Service, deverão residir no pacote *.service");
+
+    @ArchTest
+    static ArchRule ClassesQuePossuemAnotacaoRepository_DeveraoResidirNoPacoteRepository =
+            classes()
+                    .that().areAnnotatedWith(Repository.class)
+                    .should().resideInAPackage("..repository..")
+                    .as("Caro desenvolvedor, todas as nossas classes que estão anotadas como Repository, deverão residir no pacote *.repository");
 }
