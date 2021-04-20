@@ -12,9 +12,9 @@ Como foi dito anteriormente, além de organizarmos mais o nosso projeto e defini
 
 ```java
 @ArchTest
-    static final ArchRule entities_must_reside_in_a_domain_package =
-            classes().that().areAnnotatedWith(Entity.class).should().resideInAPackage("..domain..")
-                    .as("Entidades deverão residir no pacote de domínios");
+static final ArchRule entities_must_reside_in_a_domain_package =
+        classes().that().areAnnotatedWith(Entity.class).should().resideInAPackage("..domain..")
+        .as("Entidades deverão residir no pacote de domínios");
 ```
 Mas que tal agora colocarmos a mão na massa? :)
 
@@ -25,10 +25,9 @@ Mas que tal agora colocarmos a mão na massa? :)
 Para esse artigo em questão, iremos precisar ter as seguintes tecnologias no nosso projeto:
 
 1. [Java 8+](https://www.java.com/pt-BR/download/help/whatis_java.html): Linguagem de Programação Java na versão 8+
-2. [Junit 5](https://junit.org/junit5/): Framework para desenvolvimento de testes
-3. [Maven](https://maven.apache.org/): Ferramenta de automação para compilação
-4. [ArchUnit](https://www.archunit.org/): Ferramenta que será utilizada para o desenvolvimento dos nossos testes arquiteturais
-5. [Spring](https://spring.io/): Framework de programação
+2. [Maven](https://maven.apache.org/): Ferramenta de automação para compilação
+3. [ArchUnit](https://www.archunit.org/): Ferramenta que será utilizada para o desenvolvimento dos nossos testes arquiteturais
+4. [Spring](https://spring.io/): Framework de programação
 
 Não irei entrar muito a dentro de todas as tecnologias utilizadas pois não é o nosso objetivo desse artigo.
 
@@ -36,29 +35,7 @@ Não irei entrar muito a dentro de todas as tecnologias utilizadas pois não é 
 
 ![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vc5dbouy55a2xq6iyn5z.png)
 
-Para que possamos utilizar o **archunit**, precisamos fazer o uso do Junit 4 ou superior, mas como foi dito anteriormente, iremos utilizar o **Junit5**:
-
-```xml
-<dependency>
-    <groupId>org.junit.platform</groupId>
-    <artifactId>junit-platform-launcher</artifactId>
-    <version>1.7.1</version>
-    <scope>test</scope>
-</dependency>
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-engine</artifactId>
-    <version>5.7.1</version>
-    <scope>test</scope>
-</dependency>
-<dependency>
-    <groupId>org.junit.vintage</groupId>
-    <artifactId>junit-vintage-engine</artifactId>
-    <version>5.7.1</version>
-    <scope>test</scope>
-</dependency>
-```
-Também será necessário que a gente adicione no nosso projeto a dependência do **archunit** que é o objetivo principal do nosso artigo:
+Para que possamos utilizar o **archunit** no nosso projeto, será necessário adicionarmos a seguinte dependência no nosso projeto:
 
 ```xml
 <dependency>
