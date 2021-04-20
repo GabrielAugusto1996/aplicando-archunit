@@ -36,7 +36,7 @@ Não irei entrar muito a dentro de todas as tecnologias utilizadas pois não é 
 
 ![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vc5dbouy55a2xq6iyn5z.png)
 
-Para que possamos utilizaf o **pitest**, precisamos fazer o uso do Junit 4 ou superior, mas como foi dito anteriormente, iremos utilizar o **Junit5**:
+Para que possamos utilizaf o **archunit**, precisamos fazer o uso do Junit 4 ou superior, mas como foi dito anteriormente, iremos utilizar o **Junit5**:
 
 ```xml
 <dependency>
