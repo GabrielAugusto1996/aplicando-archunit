@@ -2,7 +2,7 @@
 
 ![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ch5qxnnb24ajcarwjxza.png)
 
-Muita das vezes quando iniciamos um projeto, a maior dificuldade que possuímos é no momento de fazer a organização entre os nossos pacotes, classes e definições de qual classe poderá ter acesso a determinada outra classe, após derrotarmos essa dificuldade, o nosso próximo desafio é mantermos essa organização e documentarmos para os futuros desenvolvedores ou até mesmo nós, como definimos a arquitetura do nosso projeto, isso é o que iremos ver a seguir!
+Muita das vezes quando iniciamos um projeto, a maior dificuldade que possuímos é no momento de fazer a organização entre os nossos pacotes, classes e definições de qual classe poderá ter acesso a determinada outra classe, após derrotarmos essa dificuldade, o nosso próximo desafio é mantermos essa organização e documentarmos para os futuros desenvolvedores ou até mesmo nós, como definimos a arquitetura do nosso projeto, isso é o que será visto a seguir!
 
 # Por quê Testes Arquiteturais?
 
@@ -36,7 +36,7 @@ Não irei entrar muito a dentro de todas as tecnologias utilizadas pois não é 
 
 ![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vc5dbouy55a2xq6iyn5z.png)
 
-Para que possamos utilizaf o **archunit**, precisamos fazer o uso do Junit 4 ou superior, mas como foi dito anteriormente, iremos utilizar o **Junit5**:
+Para que possamos utilizar o **archunit**, precisamos fazer o uso do Junit 4 ou superior, mas como foi dito anteriormente, iremos utilizar o **Junit5**:
 
 ```xml
 <dependency>
@@ -85,7 +85,7 @@ public class ArchitectureTest {
 
 ![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r5ijbphlme995jvlam0b.png)
 
-Juntos, iremos definir uma arquitetura simples na qual iremos ter classes de **Controller** que irão poder chamar apenas as classes **Service** que poderão chamar somente classes **Repository**, conforme visto no desenho abaixo:
+Juntos, iremos definir uma arquitetura simples na qual iremos ter classes de **Controller** que irão poder chamar apenas as classes **Service** e que poderão chamar somente classes **Repository**, conforme visto no desenho abaixo:
 
 ![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3waa6n7a3gn6hnfsbpw6.png)
 
@@ -141,11 +141,11 @@ Por último, para concluirmos o nosso desafio, precisamos definir qual classe ir
 
 ```java
 
- @ArchTest
-    static final ArchRule ClassesQueResidemNoPacoteControllerNaoPodemConhecerRepository =
-            noClasses().that().resideInAPackage("..controller..")
-                    .should().dependOnClassesThat().resideInAPackage("..repository..")
-            .as("As classes Repository não podem ficar juntas das classes Controller :(");
+@ArchTest
+static final ArchRule ClassesQueResidemNoPacoteControllerNaoPodemConhecerRepository =
+        noClasses().that().resideInAPackage("..controller..")
+        .should().dependOnClassesThat().resideInAPackage("..repository..")
+        .as("As classes Repository não podem ficar juntas das classes Controller :(");
 
 ```
 No exemplo acima, definimos que nenhuma classe que resida no pacote **Controller** poderá depender de nenhuma classe que resida no pacote **Repository**, que história triste de amor, não? :D
