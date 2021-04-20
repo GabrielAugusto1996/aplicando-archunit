@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 @AnalyzeClasses(
         packages = "br.com.aplicando.archunit",
@@ -60,4 +61,12 @@ public class ArchitectureTest {
                     .that().areAnnotatedWith(Repository.class)
                     .should().resideInAPackage("..repository..")
                     .as("Caro desenvolvedor, todas as nossas classes que estão anotadas como Repository, deverão residir no pacote *.repository");
+
+    // Definindo acesso as classes
+
+    @ArchTest
+    static final ArchRule ClassesQueResidemNoPacoteControllerNaoPodemConhecerRepository =
+            noClasses().that().resideInAPackage("..controller..")
+                    .should().dependOnClassesThat().resideInAPackage("..repository..")
+            .as("As classes Repository não podem ficar juntas das classes Controller :(");
 }
