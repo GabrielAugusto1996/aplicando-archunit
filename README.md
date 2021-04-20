@@ -2,7 +2,7 @@
 
 ![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ch5qxnnb24ajcarwjxza.png)
 
-Muita das vezes quando iniciamos um projeto, a maior dificuldade que possuímos é no momento de fazer a organização entre os nossos pacotes, classes e definições de qual classe poderá ter acesso a determinada outra classe, após derrotarmos essa dificuldade, o nosso próximo desafio é mantermos essa organização e documentarmos para os futuros desenvolvedores ou até mesmo nós, como definimos a arquitetura do nosso projeto, isso é o que será visto a seguir!
+Muita das vezes quando iniciamos um projeto, a maior dificuldade que possuímos é no momento de fazer a organização entre os nossos pacotes, classes e definições de qual classe poderá ter acesso a determinada outra classe, após derrotarmos essa dificuldade, o nosso próximo desafio é mantermos essa organização e documentarmos para os futuros desenvolvedores ou até mesmo nós, como definimos a arquitetura do nosso projeto, isso é o que você irá ver a seguir!
 
 # Por quê Testes Arquiteturais?
 
