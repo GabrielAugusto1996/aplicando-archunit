@@ -35,7 +35,7 @@ Não irei entrar muito a dentro de todas as tecnologias utilizadas pois não é 
 
 ![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vc5dbouy55a2xq6iyn5z.png)
 
-Para que possamos utilizar o **archunit** no nosso projeto, será necessário adicionarmos a seguinte dependência no nosso projeto:
+Para que possamos utilizar o **archunit** no nosso projeto, será necessário adicionarmos a seguinte dependência:
 
 ```xml
 <dependency>
