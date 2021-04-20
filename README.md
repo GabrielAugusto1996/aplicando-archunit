@@ -2,15 +2,15 @@
 
 ![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ch5qxnnb24ajcarwjxza.png)
 
-Muita das vezes quando iniciamos um projeto, a maior dificuldade que possuímos é no momento de fazer a organização entre os nossos pacotes, classes e definições de qual classe poderá ter acesso a determinada outra classe, após derrotarmos essa dificuldade, o nosso próximo desafio é mantermos essa organização e documentarmos para os futuros desenvolvedores ou até mesmo nós na arquitetura do nosso projeto, isso é o que você virar a seguir!
+Muita das vezes quando iniciamos um projeto, a maior dificuldade que possuímos é no momento de fazer a organização entre os nossos pacotes, classes e definições de qual classe poderá ter acesso a determinada outra classe, após derrotarmos essa dificuldade, o nosso próximo desafio é mantermos essa organização e documentarmos para os futuros desenvolvedores ou até mesmo nós, como definimos a arquitetura do nosso projeto, isso é o que iremos ver a seguir!
 
 # Por quê Testes Arquiteturais?
 
 ![image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9oa5262hws7pnosoo3do.png)
 
-Como foi dito anteriormente, além de conseguirmos organizar mais os nossos pacotes e realizar a criação de uma convenção do nosso projeto, conseguimos ter uma documentação de onde classe deveria residir, conforme exemplo visto abaixo:
+Como foi dito anteriormente, além de organizarmos mais o nosso projeto e definirmos uma convenção, conseguimos ter uma documentação de uma forma bem amigável,conforme exemplo visto abaixo, vimos uma regra informando onde as classes anotadas com **Entity** deverão residir:
 
-```
+```java
 @ArchTest
     static final ArchRule entities_must_reside_in_a_domain_package =
             classes().that().areAnnotatedWith(Entity.class).should().resideInAPackage("..domain..")
@@ -38,7 +38,7 @@ Não irei entrar muito a dentro de todas as tecnologias utilizadas pois não é 
 
 Para que possamos utilizaf o **pitest**, precisamos fazer o uso do Junit 4 ou superior, mas como foi dito anteriormente, iremos utilizar o **Junit5**:
 
-```
+```xml
 <dependency>
     <groupId>org.junit.platform</groupId>
     <artifactId>junit-platform-launcher</artifactId>
@@ -60,7 +60,7 @@ Para que possamos utilizaf o **pitest**, precisamos fazer o uso do Junit 4 ou su
 ```
 Também será necessário que a gente adicione no nosso projeto a dependência do **archunit** que é o objetivo principal do nosso artigo:
 
-```
+```xml
 <dependency>
     <groupId>com.tngtech.archunit</groupId>
     <artifactId>archunit-junit5</artifactId>
@@ -70,7 +70,7 @@ Também será necessário que a gente adicione no nosso projeto a dependência d
 ```
 Após isso, iremos fazer uma criação de uma única classe chamada **ArchitectureTest** no nosso pacote de testes, no qual irá ter a seguinte implementação nesse primeiro momento:
 
-```
+```java
 
 @AnalyzeClasses(
         packages = "SeuPacote",
@@ -97,7 +97,7 @@ Após isso, iremos definir como irá ficar o nome de cada classe e por último, 
 
 No 1º passo iremos definir como deverá ser o nome das nossas classes, já que somos pessoas extremamente criativas, vamos utilizar o nome de cada anotação no final da nossa classe, porquê será que ninguém nunca pensou nisso antes? :D
 
-```
+```java
     @ArchTest
     static ArchRule ClassesQuePossuemAnotacaoController_DeveraoFinalizarComNomeController =
             classes()
@@ -122,7 +122,7 @@ Caso não consiga não se preocupe, basta abrir o [GitHub](https://github.com/Ga
 
 No 2º passo iremos definir onde cada classe irá residir, o teste irá ser bastante similar ao anterior, então vamos lá? :)
 
-```
+```java
 @ArchTest
     static ArchRule ClassesQuePossuemAnotacaoController_DeveraoResidirNoPacoteController =
             classes()
@@ -139,7 +139,7 @@ Com o exemplo acima, informamos no ".resideInAPackage(...)", qual será o local 
 
 Por último, para concluirmos o nosso desafio, precisamos definir qual classe irá chamar a outra, para que dessa forma, tenhamos o controle de qual classe poderá conhecer a outra, para isso iremos seguir o exemplo abaixo:
 
-```
+```java
 
  @ArchTest
     static final ArchRule ClassesQueResidemNoPacoteControllerNaoPodemConhecerRepository =
@@ -156,7 +156,7 @@ No exemplo acima, definimos que nenhuma classe que resida no pacote **Controller
 
 Agradeço a todos vocês que leram o meu artigo e que me acompanham na criação dos meus conteúdos :)
 
-O [ArchUnit](https://www.archunit.org/getting-started), possui uma ótima documentação e me ajuda muito nos projetos que executo no meu dia à dia, o que você acha de apresentar isso para os seus projetos? :)
+O [ArchUnit](https://www.archunit.org/getting-started), possui uma ótima documentação e me ajuda muito nos projetos que executo no meu dia à dia, o que você acha de apresentar isso nos seus projetos? :)
 
 - Linkedin: https://www.linkedin.com/in/gabriel-augusto-1b4914145/
 - GitHub: https://github.com/GabrielAugusto1996/aplicando-archunit 
