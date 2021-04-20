@@ -156,7 +156,7 @@ No exemplo acima, definimos que nenhuma classe que resida no pacote **Controller
 
 Agradeço a todos vocês que leram o meu artigo e que me acompanham na criação dos meus conteúdos :)
 
-O [ArchUnit](https://www.archunit.org/getting-started), possui uma ótima documentação e me ajuda muito nos projetos que executo no meu dia à dia, o que você acha de apresentar isso para os seus projetos? :)
+O [ArchUnit](https://www.archunit.org/getting-started), possui uma ótima documentação e me ajuda muito nos projetos que executo no meu dia à dia, o que você acha de aplicar isso nos seus projetos? :)
 
 - Linkedin: https://www.linkedin.com/in/gabriel-augusto-1b4914145/
 - GitHub: https://github.com/GabrielAugusto1996/aplicando-archunit 
